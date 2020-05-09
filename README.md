@@ -16,14 +16,14 @@ To meet these requirements this project includes two tools:
 # Getting started
 ## Running the anonymiser
 The anonymiser is run from the command line with the following parameters
-- type The name of the type of file (e.g. customers)
+- -type The name of the type of file (e.g. customers)
 - -rules (optional) The name of the rules file (defaults to the name of the type with a .cf extension e.g. customers.cf)
 - -output (optional) The folder to put the resulting files (defaults to ./output/)
 - files a list of files or wildcard to denote the files to be anonymised - output files have the same name but in the output folder
 
 ## Running the analyser
 The analyser is similarly run from the command line with the following parameters
-- type The name of the type of file (e.g. customers)
+- -type The name of the type of file (e.g. customers)
 - -delimeter (optional but needs either delimeter or widths) specifies the delimeter used to seperate each field in a delimeter seperated file (e.g. a comma in a CSV)
 - -widths (optional but needs either delimeter or widths) specifies the widths of each field in a fixed width file (e.g. 1,5,1,2 if the file stucture looks like A00000B12)
 - -rules (optional) specifies the name of the rules file to create (defaults to the name of the type with a .cf extension e.g. customers.cf)
