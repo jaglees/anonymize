@@ -1,0 +1,48 @@
+{
+    "type":"accounts",
+    "header": false,
+    "fields": [
+        {
+            "name": "accountNumber",
+            "width": 8,
+            "mode": "random",
+            "regEx": "[0-9]{8}",
+            "presentRatio": 1
+        },
+        {
+            "name": "sortCode",
+            "width": 6,
+            "mode": "random",
+            "regEx": "[0-9]{6}",
+            "presentRatio": 1
+        },
+        {
+            "name": "name",
+            "width": 25,
+            "mode": "random",
+            "regEx": "[A-Za-z\\.']{10,25}",
+            "presentRatio": 1
+        },
+        {
+            "name": "flag1",
+            "width": 1,
+            "mode": "random",
+            "regEx": "1",
+            "presentRatio": 0.1
+        },
+        {
+            "name": "flag2",
+            "width": 1,
+            "mode": "random",
+            "regEx": "1",
+            "presentRatio": 0.1
+        },
+        {
+            "name": "customerId",
+            "width": 6,
+            "mode": "token",
+            "regEx": "[A-Z]{3}[0-9]{3}",
+            "presentRatio": 1
+       }
+    ]
+}

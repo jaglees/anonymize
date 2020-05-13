@@ -32,6 +32,7 @@ The analyser is similarly run from the command line with the following parameter
 # Configuration
 Each rules file contains a header with the following:
 * Type - the type of file as specified by the -type parameter
+* Header (optional) does the first line of the file denote a header (default to false)
 * Delimiter (optional - if not present this denotes fixed width)
 
 The rules configuration file contains a field list with the following values for each field
@@ -43,7 +44,6 @@ The rules configuration file contains a field list with the following values for
 * Width (only for fixed width files): The size of this field in characters
 * RegEx: The regular expression which must be satisfied when generating a field
 * PresentRatio: The probability of this field being non-empty (all spaces for fixed length or zero length for delimted files) - e.g. 0 means never present, 1 means always contains data, 0.5 means contains data half the time
-* LengthRatio: An array of the different lengths with probabilities for each length (when a field is present). This must total 1 e.g. 10:0.5, 11:0.25, 12:0.25 gives a 50% chance of generating a 10 character long strong and a 25% chance of generating either an 11 or 12 character long string. This is combined with a PresentRatio. So if the present ratio was 0.1, 90% would be blank, 5% would have 10 characters, 2.5% with either 11 or 12 characters.
 
 # Tokenisation
 Token values are stored in files in the ./mapping folder. There is one file per tokenised field. The file contains:

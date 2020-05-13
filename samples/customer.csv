@@ -1,0 +1,5 @@
+lineNo,customerID,firstname,middlename,surname,email
+1,ABC123,Joe,,Bloggs,joe.bloggs@example.com
+2,XYZ123,Frank,,Fotherby-Smythe,frank@longname.com
+3,TGC000,Simon,,O'Flynn,simon@theflynns.net
+4,TPQ962,Sarah,Louise,Jones,sarahlouisejones@hotmail.com

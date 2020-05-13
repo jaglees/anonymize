@@ -1,0 +1,42 @@
+{
+    "type":"customer",
+    "delimiter" : "," ,
+    "header": true,
+    "fields": [
+        {
+            "name": "lineNo",
+            "mode": "origional",
+            "presentRatio": 1
+        },
+        {
+            "name": "customerId",
+            "mode": "token",
+            "regEx": "[A-Z]{3}[0-9]{3}",
+            "presentRatio": 1
+        },
+        {
+            "name": "firstName",
+            "mode": "random",
+            "regEx": "[A-Z][a-z]{2,4}",
+            "presentRatio": 1
+        },
+        {
+            "name": "middlename",
+            "mode": "random",
+            "regEx": "[A-Z][a-z]{5}",
+            "presentRatio": 0.25
+        },
+        {
+            "name": "surname",
+            "mode": "random",
+            "regEx": "[A-Z]'{0,1}[a-z]{4,14}",
+            "presentRatio": 1
+        },
+        {
+            "name": "email",
+            "mode": "random",
+            "regEx": "^[a-z.]{5,16}@[a-z]{7,9}(\\.[a-z]{3})$",
+            "presentRatio": 1
+        }
+    ]
+}
