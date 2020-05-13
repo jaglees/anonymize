@@ -19,6 +19,7 @@ The anonymizer is run from the command line with the following parameters
 - -type: The name of the type of file (e.g. customers)
 - -rules: (optional) The name of the rules file (defaults to the name of the type with a .cf extension e.g. customers.cf)
 - -output: (optional) The folder to put the resulting files (defaults to ./output/)
+- -verbose: (optional) Runs in verbose mode outputting more details during the execution
 - files: a list of files or wildcard to denote the files to be anonymized - output files have the same name but in the output folder
 
 ## Running the analyser
@@ -27,6 +28,7 @@ The analyser is similarly run from the command line with the following parameter
 - -delimiter (optional but either delimiter/widths is required) specifies the delimiter used to separate each field in a delimiter separated file (e.g. a comma in a CSV)
 - -widths (optional but either delimiter/widths is required) a comma separated list of the widths of each field in a fixed width file (e.g. 1,5,1,2 if the file structure looks like A00000B11)
 - -rules (optional) specifies the name of the rules file to create (defaults to the name of the type with a .cf extension e.g. customers.cf)
+- -verbose: (optional) Runs in verbose mode outputting more details during the execution
 - files a list of files or a wildcard to denote the files to be analysed
 
 # Configuration

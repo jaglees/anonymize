@@ -3,29 +3,37 @@ import os
 import random
 import generate
 import configHandler
+import tokenizer
 
+# Function to split a fixed width line up based on a config object
 def splitFixedWidth(line, c):
     f=[]
     i=0
     for w in c.getChunkSizes():
-        log.debug("Split ["+line+"] column width "+str(w)+" = ["+line[i:w]+"]")
-        f.append(line[i:w])
+        log.debug("Split ["+line+"] column from start ["+str(i)+"] width "+str(w)+" = ["+line[i:(i+w)]+"]")
+        f.append(line[i:(i+w)])
         i=i+w
     return f
 
 # TODO: replace log with a wrapper to standardise log formats and include timestamp + metadata
+# TODO: default to warning unless -v or -verbose flag (in which case INFO)
 logging.basicConfig(level=logging.INFO)
 log=logging.getLogger("anonymize")
 
 # TODO: convert to pass these as parameters
-# configFile = "./samples/customer.cf"
-# sourceFile = "./samples/customer.csv"
-configFile = "./samples/accounts.cf"
-sourceFile = "./samples/accounts.dat"
+configFile = "./samples/customer.cf"
+sourceFile = "./samples/customer.csv"
+# configFile = "./samples/accounts.cf"
+# sourceFile = "./samples/accounts.dat"
 
 outputFile= "./output/"+ sourceFile.split('/')[-1]
 
 c = configHandler.ConfigHandler(configFile)
+tokenisers = {}
+for cfield in c.config['fields']:
+    if cfield['mode']=="token":
+        name=cfield['name']
+        tokenisers[name] = tokenizer.Tokenizer('./mapping/'+name+".map")
 
 if ('delimiter' not in c.config):
     delim=""
@@ -69,11 +77,11 @@ with open (sourceFile) as source:
                     log.debug("..Generate random value regex["+cfield['regEx']+"]")
                     newValue = generate.generate(cfield['regEx'])
                 elif (cfield['mode'] == 'token'):
-                    log.debug('..Searching for token')
-                    # t = getToken( field )
-                    # if (t = ""):
-                    t = generate.generate(cfield['regEx'])
-                    #   storeToken (field, token)
+                    log.debug("..Searching for token ["+field+"]")
+                    t = tokenisers[cfield['name']].getToken( field )
+                    if (t == ""):
+                        t = generate.generate(cfield['regEx'])
+                        tokenisers[cfield['name']].storeToken(field, t)
                     newValue=t
 
             if delim=="":

@@ -1,6 +1,5 @@
 import json
 
-
 class ConfigHandler:
     config = None
     def __init__(self, configFile):
