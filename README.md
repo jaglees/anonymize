@@ -14,6 +14,9 @@ To meet these requirements this project includes two tools:
 2. Analyser: Analyses a source file and produces a rules file to define the structure and what is 'realistic' (e.g. what range of sizes or what patterns do each field follow). This rules file can be further  modified manually before running the anonymizer - alternatively rules files can be written manually and the analyser avoided completely.
 
 # Getting started
+## Installation
+`pip install -r requirements.txt`
+
 ## Running the anonymizer
 The anonymizer is run from the command line with the following parameters
 - -type: The name of the type of file (e.g. customers)
