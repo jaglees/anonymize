@@ -18,6 +18,12 @@ To meet these requirements this project includes two tools:
 `pip install -r requirements.txt`
 
 ## Running the anonymizer
+```mermaid
+graph LR
+  s[Source Files] --> A(Anonymizer)
+  C[Config File] --> A
+  A --> O[Output Files]
+```
 The anonymizer is run from the command line with the following parameters
 - -type: The name of the type of file (e.g. customers)
 - -rules: (optional) The name of the rules file (defaults to the name of the type with a .cf extension e.g. customers.cf)

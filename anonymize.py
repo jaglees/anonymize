@@ -23,7 +23,7 @@ def splitFixedWidth(line, c):
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("anonymize")
 
-# TODO: convert to pass these as parameters
+# TODO: convert to pass these as parameter
 configFile = "./samples/customer.cf"
 sourceFile = "./samples/customer.csv"
 # configFile = "./samples/accounts.cf"
